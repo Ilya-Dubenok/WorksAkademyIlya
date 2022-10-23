@@ -32,10 +32,5 @@ public class Task3 {
         System.out.println("Гипотенуза, округленная до трех знаков после запятой: "
                 +Math.round(hipotenuza*1000.0)/1000.0);
 
-
-
-
-
-
     }
 }
