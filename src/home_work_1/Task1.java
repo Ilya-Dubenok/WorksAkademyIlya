@@ -1,6 +1,5 @@
 package home_work_1;
 
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Task1 {
