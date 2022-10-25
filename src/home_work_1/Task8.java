@@ -20,6 +20,7 @@ public class Task8 {
                     res = "1".concat(res);
                 }
             //обратный код
+                
             } else {
                 if (num % 2 == 0) {
                     res = "1".concat(res);
