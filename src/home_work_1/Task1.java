@@ -1,6 +1,5 @@
 package home_work_1;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public class Task1 {
