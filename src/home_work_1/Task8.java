@@ -8,19 +8,20 @@ public class Task8 {
 
     }
 
+    /*Метод принимает byte и возвращет его представление
+    * в двоичном коде типа String*/
     public static String toBinaryString(byte num) {
         String res = "";
         byte num2 = num;
         while (num != 0) {
-            //прямой код
+            //эта часть вывод прямой код
             if (num >= 0) {
                 if (num % 2 == 0) {
                     res = "0".concat(res);
                 } else {
                     res = "1".concat(res);
                 }
-            //обратный код
-                
+            //эта часть выводит обратный код
             } else {
                 if (num % 2 == 0) {
                     res = "1".concat(res);
@@ -30,15 +31,17 @@ public class Task8 {
             }
             num /= 2;
         }
-        //добиваем до 8 бит
-        while (res.length() < 8) {
+        /*если результат на данный момент меньше 8 бит (чисел) - эта часть
+        дополняем String до 8 бит
+        */
+                while (res.length() < 8) {
             if (num2 >= 0) {
                 res = "0".concat(res);
             } else {
                 res = "1".concat(res);
             }
         }
-        //the most tricky part -- представление дополнительного кода
+        /*Эта часть выводит дополнительный код из обратного кода*/
         if (num2 < 0) {
             char [] chars = res.toCharArray();
             for (int i = chars.length - 1; i >= 0; i--) {

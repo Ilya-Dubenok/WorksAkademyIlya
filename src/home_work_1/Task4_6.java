@@ -21,7 +21,10 @@ public class Task4_6 {
         }
 
     }
-
+    /*принмиает сканнер, возвращет введенное пользователем
+     число (допускается только целое число)
+     типа int, включает проверку на правильность ввода данных
+     */
     public static int getInt (Scanner console){
         if (console.hasNextInt()) {
             return console.nextInt();

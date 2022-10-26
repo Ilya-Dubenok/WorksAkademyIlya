@@ -17,10 +17,16 @@ public class Task5 {
         }
     }
 
+    /*принимает два boolean параметра weekday и vacation
+     возвращает true если weekday==false или vacation==true*/
     public static boolean sleepIn(boolean weekday, boolean vacation) {
+
         return !weekday||vacation;
     }
 
+    /*Принмиает значения сканнер для ввода пользовательских данных
+    * допускается только boolean
+    * включает проверку на правильность ввода данных*/
     public static boolean getBoolean (Scanner console){
         if (console.hasNextBoolean()) {
             return console.nextBoolean();

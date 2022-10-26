@@ -19,13 +19,16 @@ public class Task4_4 {
         }
     }
 
-    //true if bytes, false if kilobytes
+    /*предлагает ввести пользователю "b" или "kb", выводит true,
+    * если пользователь ввел "b" и false, если "kb"*/
     public static boolean getBytesOrKiloBytes (Scanner console){
         System.out.println("Если хотите перевести в байты, введите b, если в килобайты, введите kb: ");
         String choice = getStringWithCheck(console);
         return choice.equals("b");
     }
 
+    /*проверка на правильность ввода данных (допускается только "b" или "kb")
+    * в случае неверного ввода просит повторить ввод данных*/
     public static String getStringWithCheck(Scanner console){
         String answer = console.next();
         if (!(answer.equals("b") || answer.equals("kb"))) {
@@ -36,7 +39,10 @@ public class Task4_4 {
         return answer;
 
     }
-
+    /*принмиает сканнер, возвращет введенное пользователем
+     число (допускается только целое положительное число)
+     типа int, включает проверку на правильность ввода данных
+     */
     public static int getInt (Scanner console){
         if (console.hasNextInt()) {
             int res = console.nextInt();

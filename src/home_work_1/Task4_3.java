@@ -22,16 +22,24 @@ public class Task4_3 {
 
     }
 
+    /*принмиает сканнер, возвращет введенное пользователем
+     число (допускается только целое число)
+     типа int, включает проверку на правильность ввода данных
+     */
     public static int getInt (Scanner console){
         if (console.hasNextInt()) {
             return console.nextInt();
         } else {
-            System.out.println("Я сказал Введите.Целое.Число:");
+            System.out.println("Нужно ввести целое число:");
             console.next();
             return getInt(console);
         }
     }
 
+    /*принмиает сканнер, возвращет введенное пользователем
+     число (допускается только целое число и не ноль)
+     типа int, включает проверку на правильность ввода данных
+     */
     public static int getIntWithZeroCheck (Scanner console){
         if (console.hasNextInt()) {
             int res = console.nextInt();
@@ -43,7 +51,7 @@ public class Task4_3 {
                 return getIntWithZeroCheck(console);
             }
         } else {
-            System.out.println("Я сказал Введите.Целое.Число (не ноль):");
+            System.out.println("Нужно ввести целое число и не ноль:");
             console.next();
             return getIntWithZeroCheck(console);
         }
