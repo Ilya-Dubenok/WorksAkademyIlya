@@ -17,7 +17,7 @@
 Задача 8.7 - runners.CalculatorWithCounterDelegateAgregationMain
 Задача 9   - calcs.additional.CalculatorWithCounterAutoChoiceAgregation
 Задача 9.7 - runners.CalculatorWithCounterDelegateChoiceAgregationMain
-Задача 10  - api.ICalculator
+Задача 10  - calcs.api.ICalculator
 Задача 11  - calcs.additional.CalculatorWithCounterAutoAgregationInterface
 Задача 11.7- runners.CalculatorWithCounterAutoCompositeInterfaceMain
 Задача 12  - calcs.additional.CalculatorWithMemory
