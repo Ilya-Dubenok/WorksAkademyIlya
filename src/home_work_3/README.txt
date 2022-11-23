@@ -1,6 +1,6 @@
 № Задачи - название класса, который ее решает:
 
-Задача 1   - calcs.simple.WithoutCalculatorMain
+Задача 1   - runners.WithoutCalculatorMain
 Задача 2   - calcs.simple.CalculatorWithOperator
 Задача 2.5 - runners.CalculatorWithOperatorMain
 Задача 3   - calcs.simple.CalculatorWithMathCopy
