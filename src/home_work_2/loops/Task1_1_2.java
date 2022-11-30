@@ -4,28 +4,52 @@ import java.util.Scanner;
 
 public class Task1_1_2 {
 
-    public static void main(String[] args) {
-        Scanner console = new Scanner(System.in);
-        System.out.println("Введите целое положительное число типа int: ");
-        int limit = getPositiveInt(console);
-        System.out.println(recursion("", 1, limit, 1));
+    public Scanner console = new Scanner(System.in);
 
+    public int limit;
 
+    public String message = "";
+
+    public int overLoaded = -1;
+
+    public Task1_1_2(int limit) {
+        if (limit < 0) {
+            message = "Введенное число меньше нуля!";
+        } else if (limit < 2) {
+            message = limit + " * " + limit + " = " + limit;
+        } else {
+            this.limit = limit;
+            message = recursion("", 1, limit, 1);
+            if (overLoaded >= 0) {
+                message = "Произошло переполнение, дальнейшие операции не дадут верного результата." +
+                        "\nВыводится операция для наибольшего допустимого числа: " + (overLoaded) + "\n" +
+                        message;
+            }
+        }
+        displayMessage();
     }
+
+
+    /**
+     * Выводит сообщение в консоль
+     */
+    private void displayMessage() {
+        System.out.println(message);
+    }
+
 
     /**
      * Рекурсивный метод перемножения чисел, выводит тип String
      * В случае перегрузки выводит сообщение о перегрузке и возвращает
      * все сообщение о перемножении до последнего числа (включительно),
      * при котором не было перегрузки
-     *
      * @param msg    Строка для формирования итогового сообщения
      * @param base   Первое число, c которого начинается умножение, увеличивается на 1 каждый шаг
      * @param limit  Число, до которого нужно перемножать (включительно)
      * @param result Число типа long, конечный результат перемножения
      * @return сообщение типа String, отражающее ход и результат перемножения
      */
-    public static String recursion(String msg, int base, int limit, long result) {
+    public  String recursion(String msg, int base, int limit, long result) {
         if (limit < 2) {
 
             return limit + " * " + limit + " = " + limit;
@@ -35,8 +59,7 @@ public class Task1_1_2 {
             return msg.substring(0, msg.length() - 2) + "= " + result;
 
         } else if (base * result < 0) {
-            System.out.println("Произошло переполнение, дальнейшие операции не дадут верного результата." +
-                    "\nВыводится операция для наибольшего допустимого числа: " + (base - 1));
+            overLoaded = base - 1;
             return msg.substring(0, msg.length() - 2) + " = " + result;
         }
 
@@ -46,12 +69,11 @@ public class Task1_1_2 {
 
     /**
      * Проверка на ввод пользователем целого положительного числа типа int
-     *
      * @param console
      * @return целое положительное число типа int, или повторный ввод
      * в случае, если ввод не соответствует условию
      */
-    public static int getPositiveInt(Scanner console) {
+    public int getPositiveInt(Scanner console) {
         if (console.hasNextInt()) {
             int res = console.nextInt();
             if (res < 0) {

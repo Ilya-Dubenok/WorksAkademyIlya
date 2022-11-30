@@ -1,24 +1,56 @@
 package home_work_1;
 
+import java.util.Random;
+
 public class Task4_1 {
 
     public static void main(String[] args) {
-        //по задаче нужно взять два случайных числа, одно из которых четное,
-        //второе нечетное
 
-        //берем случайное число, чтобы оно при этом не было равно 0
-        int even = (int) ((Math.random()+0.1)*100);
-        //делаем его наверняка нечетным
-        even = even % 2 == 0 ? even + 1 : even;
+        System.out.println(getMessage());
 
-        //берем случайное число и делаем его наверняка четным
-        int odd = (int) (Math.random()*100)*2;
+    }
 
-        int result = odd % 2 != 0 ? odd : even;
+    /**
+     * Метод для получения четного случайного числа
+     * @return
+     */
+    public static int getEvenRandom() {
+        int number = new Random().nextInt();
 
-        //Выводим числа и результат
-        System.out.println("Число odd: "+odd+" Число even: "+even+
-                "\nНечетное из них: "+result);
+        if (number % 2 == 0) {
+            return number;
+        } else {
+            return number + 1;
+        }
+
+    }
+
+
+    /**
+     * Метод для получения нечетного случайного числа
+     * @return
+     */
+    public static int getOddRandom() {
+        int number = new Random().nextInt();
+
+        if (number % 2 == 0) {
+            return number + 1;
+        } else {
+            return number;
+        }
+
+    }
+
+
+    /**
+     * Метод для получения строки с сгенерированными числами и выводом нечетного из них
+     * @return
+     */
+    public static String getMessage() {
+
+        int num1 = getEvenRandom();
+        int num2 = getOddRandom();
+        return "Были сгенерированы числа "+num1+" и "+ num2+ ".\nНечетное из них: " + num2;
 
     }
 }

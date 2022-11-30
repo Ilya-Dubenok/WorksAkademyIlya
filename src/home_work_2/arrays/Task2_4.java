@@ -26,9 +26,8 @@ public class Task2_4 {
     /**
      * Метод для решения задачи 2.4.1.
      * Вовзращает сумму положительных четных чисел массива
-     *
      * @param nums массив значений для поиска
-     * @return  сумма положительных четных чисел
+     * @return сумма положительных четных чисел
      */
     public static int sumOfOddPositive(int[] nums) {
         int res = 0;
@@ -47,11 +46,13 @@ public class Task2_4 {
      * Метод для решения задачи 2.4.2.
      * Возвращает элемент массива с максимальным значением среди элементов
      * с четным индексом
-     *
      * @param nums массив значений для поиска
      * @return максимальный элемент среди элементов с четным индексом
      */
     public static int maxFromOdd(int[] nums) {
+        if (nums.length == 0) {
+            return 0;
+        }
         int res = nums[0];
         for (int i = 2; i < nums.length; i += 2) {
             if (nums[i] > res) {
@@ -67,12 +68,14 @@ public class Task2_4 {
      * Метод для решения задачи 2.4.3.
      * Принимает массив, возвращает массив значений меньше среднего арифметического из
      * всех значений принятого массива
-     *
      * @param nums массив значений для обработки
      * @return массив значений, которые меньше среднего арифметического всех значений
      * принятого массива
      */
     public static int[] lowerThanMiddleAriphmetic(int[] nums) {
+        if (nums.length == 0) {
+            return new int[0];
+        }
         int sum = 0;
         for (int num : nums) {
             sum += num;
@@ -96,11 +99,23 @@ public class Task2_4 {
      * Метод для решения задачи 2.4.4.
      * Принимает массив, возвращает массив из двух наименьших
      * значений принятого массива (значения могут быть равны между собой)
-     *
      * @param nums массив значений для вывода
      * @return массив из двух наименьших значений принятого массива
      */
     public static int[] twoMinimumValues(int[] nums) {
+        if (nums.length == 2) {
+            int[] res = new int[2];
+            for (int i = 0; i < nums.length; i++) {
+                res[i] = nums[i];
+            }
+            return res;
+
+        } else if (nums.length == 1) {
+            int[] res = {nums[0]};
+            return res;
+        } else if (nums.length == 0) {
+            return new int[0];
+        }
         int[] res = new int[2];
         res[0] = Integer.MAX_VALUE;
         res[1] = Integer.MAX_VALUE;
@@ -126,12 +141,12 @@ public class Task2_4 {
      * Принимает массив и диапазон начального и конечного значения
      * Убирает в массиве значения, подпадающие под этот диапазон (сдвиг влево),
      * освободившиеся элементы заполяет нулями
-     *
      * @param nums  массив значений для обработки
      * @param begin начало диапазона (включительно)
      * @param end   конец диапазона (включительно)
      */
     public static void squeeze(int[] nums, int begin, int end) {
+
         int count = 0;
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] >= begin && nums[i] <= end) {
@@ -151,7 +166,6 @@ public class Task2_4 {
     /**
      * Метод для решения задачи 2.4.6.
      * Принимает массив, возвращает сумму всех цифр всех элементов массива
-     *
      * @param nums массив значений для вывода
      * @return сумма всех цифр всех элементов
      */
@@ -160,16 +174,20 @@ public class Task2_4 {
 
         int res = 0;
 
-        for (int num : nums) {
+        for (int i = 0; i < nums.length; i++) {
+            String a = "";
+            if (nums[i] < 0) {
+                a = String.valueOf(Math.abs(nums[i]));
+            } else {
+                a = String.valueOf(nums[i]);
 
-            String a = String.valueOf(num);
+            }
 
             for (char c : a.toCharArray()) {
 
                 res += Integer.parseInt(c + "");
 
             }
-
         }
 
         return res;

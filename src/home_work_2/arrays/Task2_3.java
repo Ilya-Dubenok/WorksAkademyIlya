@@ -9,35 +9,35 @@ public class Task2_3 {
 
         IArraysOperation one = new DoWhileOperation();
 
-        one.eachElementToConsole(arr);
-        one.everySecondElementToConsole(arr);
-        one.reversedOrderToConsole(arr);
+        System.out.println(one.eachElementToConsole(arr));
+        System.out.println(one.everySecondElementToConsole(arr));
+        System.out.println(one.reversedOrderToConsole(arr));
 
         System.out.println("__________________________________________");
 
         IArraysOperation two = new WhileOperation();
 
-        two.eachElementToConsole(arr);
-        two.everySecondElementToConsole(arr);
-        two.reversedOrderToConsole(arr);
+        System.out.println(two.eachElementToConsole(arr));
+        System.out.println(two.everySecondElementToConsole(arr));
+        System.out.println(two.reversedOrderToConsole(arr));
 
         System.out.println("__________________________________________");
 
 
         IArraysOperation three = new ForOperation();
 
-        three.eachElementToConsole(arr);
-        three.everySecondElementToConsole(arr);
-        three.reversedOrderToConsole(arr);
+        System.out.println(three.eachElementToConsole(arr));
+        System.out.println(three.everySecondElementToConsole(arr));
+        System.out.println(three.reversedOrderToConsole(arr));
 
         System.out.println("__________________________________________");
 
 
         IArraysOperation four = new ForEachOperation();
 
-        four.eachElementToConsole(arr);
-        four.everySecondElementToConsole(arr);
-        four.reversedOrderToConsole(arr);
+        System.out.println(four.eachElementToConsole(arr));
+        System.out.println(four.everySecondElementToConsole(arr));
+        System.out.println(four.reversedOrderToConsole(arr));
 
 
     }

@@ -8,15 +8,15 @@ public class ForOperation implements IArraysOperation {
      * @param nums массив значений для вывода
      */
     @Override
-    public void eachElementToConsole(int[] nums) {
-
-        System.out.println("Вывод всех элементов в консоль при помощи for:");
+    public String eachElementToConsole(int[] nums) {
+        String res = "";
 
         for (int i = 0; i < nums.length; i++) {
-            System.out.print(nums[i] + " ");
+            res += nums[i] + " ";
         }
 
-        System.out.println();
+        return res.trim();
+
 
     }
 
@@ -26,16 +26,15 @@ public class ForOperation implements IArraysOperation {
      * @param nums массив значений для вывода
      */
     @Override
-    public void everySecondElementToConsole(int[] nums) {
+    public String everySecondElementToConsole(int[] nums) {
 
-        System.out.println("Вывод каждого второго элемента в консоль при помощи for:");
+        String res = "";
 
         for (int i = 1; i < nums.length; i += 2) {
-            System.out.print(nums[i] + " ");
+            res += nums[i] + " ";
         }
 
-        System.out.println();
-
+        return res.trim();
     }
 
     /**
@@ -44,15 +43,14 @@ public class ForOperation implements IArraysOperation {
      * @param nums массив значений для вывода
      */
     @Override
-    public void reversedOrderToConsole(int[] nums) {
+    public String reversedOrderToConsole(int[] nums) {
 
-        System.out.println("Вывод всех элементов в консоль при помощи for в обратном порядке:");
-
+        String res = "";
         for (int i = nums.length - 1; i >= 0; i--) {
-            System.out.print(nums[i] + " ");
+            res += nums[i] + " ";
         }
 
-        System.out.println();
+        return res.trim();
 
     }
 }

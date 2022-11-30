@@ -13,21 +13,18 @@ public class Task4_2 {
         double second = getDouble(console);
         System.out.println("Введите третье число:");
         double third = getDouble(console);
-        System.out.println("Вы ввели числа: "+first+" "+second+" "+third);
-        double result = 0;
-        if ((first >= second && second >= third) || (third >= second && second >= first)) {
-            result = second;
-        } else if ((second >= third && third >= first) || (first >= third && third >= second)) {
-            result = third;
-        } else result = first;
 
-        System.out.println("Среднее из них: "+result);
+        System.out.println("Вы ввели числа: " + first + " " + second + " " + third);
+        System.out.println("Среднее из них: " + getMedium(first,second,third));
 
     }
-    /*принмиает сканнер, возвращет введенное пользователем
-     число типа double, включает проверку на правильность ввода данных
+
+    /**
+     * принмиает сканнер, возвращет введенное пользователем типа double
+     * @param console
+     * @return
      */
-    public static double getDouble (Scanner console){
+    public static double getDouble(Scanner console) {
         if (console.hasNextDouble()) {
             return console.nextDouble();
         } else {
@@ -35,6 +32,22 @@ public class Task4_2 {
             console.next();
             return getDouble(console);
         }
+    }
+
+    /**
+     * Метод для вывода среднего числа из трех заданных
+     * @param first
+     * @param second
+     * @param third
+     * @return
+     */
+    public static double getMedium(double first, double second, double third) {
+        if ((first >= second && second >= third) || (third >= second && second >= first)) {
+            return second;
+        } else if ((second >= third && third >= first) || (first >= third && third >= second)) {
+            return third;
+        } else{ return first;}
+
     }
 
 }

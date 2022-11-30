@@ -8,18 +8,18 @@ public class WhileOperation implements IArraysOperation {
      * @param nums массив значений для вывода
      */
     @Override
-    public void eachElementToConsole(int[] nums) {
+    public String eachElementToConsole(int[] nums) {
 
         int a = 0;
 
-        System.out.println("Вывод всех элементов в консоль при помощи while:");
+        String res = "";
 
         while (a < nums.length) {
-            System.out.print(nums[a] + " ");
+            res += nums[a] + " ";
             a++;
         }
 
-        System.out.println();
+        return res.trim();
 
     }
 
@@ -29,18 +29,17 @@ public class WhileOperation implements IArraysOperation {
      * @param nums массив значений для вывода
      */
     @Override
-    public void everySecondElementToConsole(int[] nums) {
+    public String everySecondElementToConsole(int[] nums) {
 
-        System.out.println("Вывод каждого второго элемента в консоль при помощи while:");
-
+        String res = "";
         int a = 1;
 
         while (a < nums.length) {
-            System.out.print(nums[a] + " ");
+            res += nums[a] + " ";
             a += 2;
         }
 
-        System.out.println();
+        return res.trim();
 
 
     }
@@ -51,17 +50,17 @@ public class WhileOperation implements IArraysOperation {
      * @param nums массив значений для вывода
      */
     @Override
-    public void reversedOrderToConsole(int[] nums) {
+    public String reversedOrderToConsole(int[] nums) {
 
         int a = nums.length - 1;
-        System.out.println("Вывод всех элементов в консоль при помощи while в обратном порядке:");
 
+        String res = "";
         while (a >= 0) {
-            System.out.print(nums[a] + " ");
+            res += nums[a] + " ";
             a--;
         }
 
-        System.out.println();
+        return res.trim();
 
     }
 }

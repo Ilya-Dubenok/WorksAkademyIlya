@@ -6,10 +6,16 @@ public class Task8 {
         byte b = -128;
         System.out.println(toBinaryString(b));
 
+        byte num = -100;
+        System.out.println(toBinaryString(num));
+        System.out.println(Integer.toBinaryString(num));
     }
 
-    /*Метод принимает byte и возвращет его представление
-    * в двоичном коде типа String*/
+    /**
+     * Метод принимает byte и возвращет его представление в двичном коде в типе String
+     * @param num
+     * @return
+     */
     public static String toBinaryString(byte num) {
         String res = "";
         byte num2 = num;

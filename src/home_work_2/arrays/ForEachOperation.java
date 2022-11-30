@@ -3,54 +3,54 @@ package home_work_2.arrays;
 public class ForEachOperation implements IArraysOperation {
 
     /**
-     * Выводит в консоль все элементы массива при помощи foreach
-     *
+     * Выводит String со всеми элементами массива при помощи foreach
      * @param nums массив значений для вывода
      */
     @Override
-    public void eachElementToConsole(int[] nums) {
-        System.out.println("Вывод всех элементов в консоль при помощи foreach:");
-
+    public String eachElementToConsole(int[] nums) {
+        String res = "";
         for (int num : nums) {
-            System.out.print(num + " ");
+            res += num + " ";
         }
-        System.out.println("");
+        return res.trim();
 
     }
 
     /**
-     * Выводит в консоль каждый второй элемент массива при помощи foreach
-     *
+     * Выводит строку с каждым вторым элементом массива при помощи foreach
      * @param nums массив значений для вывода
      */
     @Override
-    public void everySecondElementToConsole(int[] nums) {
-
-        System.out.println("Вывод каждого второго элемента в консоль при помощи foreach:");
+    public String everySecondElementToConsole(int[] nums) {
+        String res = "";
         int a = 0;
         for (int num : nums) {
 
             if (a % 2 != 0) {
-                System.out.print(num + " ");
+                res += num + " ";
             }
             a++;
 
         }
-        System.out.println("");
+        return res.trim();
 
     }
 
     /**
-     * Выводит в консоль все элементы массива в обратном порядке при помощи foreach
-     *
+     * Выводит строку со всеми элементами массива в обратном порядке при помощи foreach
      * @param nums массив значений для вывода
      */
     @Override
-    public void reversedOrderToConsole(int[] nums) {
+    public String reversedOrderToConsole(int[] nums) {
 
-        System.out.println("Вывод всех элементов в консоль при помощи foreach в обратном порядке:");
+        String res = "";
+
+        if (nums.length < 1) {
+            return res;
+        }
 
         int[] reversed = new int[nums.length];
+
         int a = reversed.length - 1;
 
         for (int num : nums) {
@@ -59,10 +59,10 @@ public class ForEachOperation implements IArraysOperation {
         }
 
         for (int rev : reversed) {
-            System.out.print(rev + " ");
+            res += rev + " ";
         }
 
-        System.out.println("");
+        return res.trim();
 
     }
 }

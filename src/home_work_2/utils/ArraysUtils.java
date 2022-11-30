@@ -52,6 +52,9 @@ public class ArraysUtils {
      * @return массив заданного размера со сгенерированными значениями
      */
     public static int[] arrayRandom(int size, int maxValueExclusion) {
+        if (size < 0 || maxValueExclusion<1) {
+            return new int[0];
+        }
 
         int[] result = new int[size];
         Random random = new Random();

@@ -6,34 +6,58 @@ public class Task5 {
 
     public static void main(String[] args) {
         Scanner console = new Scanner(System.in);
-        System.out.println("Введите true, если сейчас рабочий день и false, если выходной: ");
-        boolean isWeekDay = getBoolean(console);
-        System.out.println("Введите true, если вы в отпуске, и false, если нет: ");
-        boolean isVacation = getBoolean(console);
-        if (sleepIn(isWeekDay, isVacation)) {
-            System.out.println("Можно спать дальше.");
+
+        System.out.println(getMessage(getBooleanWeekday(console), getBooleanVacation(console)));;
+    }
+
+    public static String getMessage(boolean weekday, boolean vacation) {
+        if (sleepIn(weekday, vacation)) {
+            return "Можно спать дальше";
         } else {
-            System.out.println("Пора на работу!");
+            return "Пора на работу!";
         }
     }
 
-    /*принимает два boolean параметра weekday и vacation
-     возвращает true если weekday==false или vacation==true*/
+    /**
+     * Возвращает true, если сейчас не выходной или в отпуске
+     * @param weekday
+     * @param vacation
+     * @return
+     */
     public static boolean sleepIn(boolean weekday, boolean vacation) {
 
         return !weekday||vacation;
     }
 
-    /*Принмиает значения сканнер для ввода пользовательских данных
-    * допускается только boolean
-    * включает проверку на правильность ввода данных*/
-    public static boolean getBoolean (Scanner console){
+    /**
+     * Метод для получения из консоли, является ли сейчас рабочий день
+     * @param console
+     * @return
+     */
+    public static boolean getBooleanWeekday (Scanner console){
+        System.out.println("Введите true, если сейчас рабочий день и false, если выходной: ");
         if (console.hasNextBoolean()) {
             return console.nextBoolean();
         } else {
             System.out.println("Можно вводить только true или false: ");
             console.next();
-            return getBoolean(console);
+            return getBooleanWeekday(console);
+        }
+    }
+
+    /**
+     * Метод для получения из консоли, является ли сейчас отпуск
+     * @param console
+     * @return
+     */
+    public static boolean getBooleanVacation (Scanner console){
+        System.out.println("Введите true, если вы в отпуске, и false, если нет: ");
+        if (console.hasNextBoolean()) {
+            return console.nextBoolean();
+        } else {
+            System.out.println("Можно вводить только true или false: ");
+            console.next();
+            return getBooleanVacation(console);
         }
     }
 }

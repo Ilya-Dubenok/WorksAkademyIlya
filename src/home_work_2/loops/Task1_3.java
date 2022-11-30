@@ -4,14 +4,67 @@ import java.math.BigDecimal;
 import java.util.Scanner;
 
 public class Task1_3 {
-    public static void main(String[] args) {
 
-        Scanner console = new Scanner(System.in);
-        System.out.println("Введите число, которое будем возводить в степень, можно дробное и отрицательное");
-        double base = getDouble(console);
-        System.out.println("Введите степень, в котороую будем возводить, только положительное типа int");
-        int stage = getPositiveInt(console);
-        double result = base;
+    public double base;
+    public int stage;
+    public String message = "";
+    public double result;
+
+
+    public Task1_3(String base, String stage) {
+        try {
+            Double.parseDouble(base);
+        } catch (Exception e) {
+            message = "Введено не число";
+            displayMessage();
+            return;
+
+        }
+        try {
+            Double.parseDouble(stage);
+        } catch (Exception e) {
+            message = "Введено не число";
+            displayMessage();
+            return;
+        }
+
+        try {
+            Integer.parseInt(stage);
+        } catch (Exception e) {
+            message = "Введено дробное число";
+            displayMessage();
+            return;
+
+        }
+
+
+        if (Integer.parseInt(stage) < 0) {
+            message = "Введено отрицательное число!";
+        } else {
+            this.base = Double.parseDouble(base);
+            this.stage = Integer.parseInt(stage);
+            formMessage();
+        }
+        displayMessage();
+
+
+    }
+
+
+
+    /**
+     * Выводит сообщение в консоль
+     */
+    private void displayMessage() {
+        System.out.println(message);
+    }
+
+    /**
+     * Формирует сообщение о ходе вычислений
+     */
+    public void formMessage() {
+
+        result = base;
         if (stage == 0) {
             result = 1;
         } else {
@@ -20,19 +73,18 @@ public class Task1_3 {
 
             }
         }
-        System.out.println(base + " ^ " + stage + " = " + result);
-
+        message = base + " ^ " + stage + " = " + result;
     }
+
 
     /**
      * Проверка на ввод пользователем целого положительного числа типа int
      * Запрашивает повторный ввод в случае, если введенное значение не соовтетствует
      * условию
-     *
      * @param console
      * @return целое положительное число типа int
      */
-    public static int getPositiveInt(Scanner console) {
+    public int getPositiveInt(Scanner console) {
         if (console.hasNextInt()) {
             int res = console.nextInt();
             if (res < 0) {
@@ -52,11 +104,10 @@ public class Task1_3 {
      * Метод для принятия от сканера дробного числа
      * Заправшивает повторный ввод, если введенное
      * значение не является числом
-     *
      * @param console
      * @return double значение из сканера
      */
-    public static double getDouble(Scanner console) {
+    public double getDouble(Scanner console) {
         if (console.hasNextDouble()) {
             return console.nextDouble();
         } else {

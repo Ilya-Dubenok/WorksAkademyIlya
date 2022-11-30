@@ -9,23 +9,11 @@ public class Task1 {
         int a = getInt(console);
         System.out.println("Введите второе целое число:");
         int b = getInt(console);
-        //Для демонстрации выбрал числа 110 и -20
-        //операция и вывод & (И)
 
-        int result1 = a&b; /* = 108
 
-        110 ->0110_1110
-        -20 ->1110_1100
-        108 ->0110_1100   */
+        System.out.println(getAndMessage(a,b));
 
-        System.out.println("Результат побитового И чисел " + a + " и " + b + ": " + result1);
-        //операция и вывод | (ИЛИ)
-
-        int result2 = a|b; /*=-18
-        110 ->0110_1110
-        -20 ->1110_1100
-        -18 ->1110_1110   */
-        System.out.println("Результат побитового ИЛИ чисел " + a + " и " + b + ": " + result2);
+        System.out.println(getOrMessage(a,b));
 
         //Побитовая операция с floating point number не работает
         //double result3 = 42.5 &10;
@@ -35,6 +23,33 @@ public class Task1 {
 
     }
 
+    public static String getAndMessage(int a, int b) {
+        return "Результат побитового И чисел " + a + " и " + b + ": " + getAnd(a, b);
+    }
+
+    public static String getOrMessage(int a, int b) {
+        return "Результат побитового ИЛИ чисел " + a + " и " + b + ": " + getOr(a, b);
+    }
+
+    /**
+     * Возвращает побитовое И двух чисел
+     * @param a
+     * @param b
+     * @return
+     */
+    public static int getAnd(int a, int b) {
+        return a & b;
+    }
+
+    /**
+     * Возвращает побитовое ИЛИ двух чисел
+     * @param a
+     * @param b
+     * @return
+     */
+    public static int getOr(int a, int b) {
+        return a | b;
+    }
     /*принмиает сканнер, возвращет введенное пользователем
      число (допускается только целое число)
      типа int, включает проверку на правильность ввода данных

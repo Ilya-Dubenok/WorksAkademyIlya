@@ -7,20 +7,20 @@ public interface IArraysOperation {
      *
      * @param nums массив значений для вывода
      */
-    void eachElementToConsole(int[] nums);
+    String eachElementToConsole(int[] nums);
 
     /**
      * Вывод каждого второго элемента массива в консоль
      *
      * @param nums массив значений для вывода
      */
-    void everySecondElementToConsole(int[] nums);
+    String everySecondElementToConsole(int[] nums);
 
     /**
      * Вывод всех элементов массива в консоль в обратном порядке
      *
      * @param nums массив значений для вывода
      */
-    void reversedOrderToConsole(int[] nums);
+    String reversedOrderToConsole(int[] nums);
 
 }

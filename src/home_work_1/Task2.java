@@ -1,48 +1,123 @@
 package home_work_1;
 
+
 public class Task2 {
     public static void main(String[] args) {
         int a = 5, b = 2, c = 8;
-        int res1 = a + b / c;   // =5, т.к. сперва выполняется 2/8=0(т.к. интовое число), а затем 5+0=5
 
-        int res2 = (a + b) / c; // =0, т.к. сперва выполяется 5+2=7, а затем 7/8=0(т.к. интовое число)
 
-        int res3 = (a + b++) / c; // =0, т.к. сперва выполяется 5+2=7, затем b++(но уже не используется),
-                                   //а затем 7/8=0(т.к. интовое число)
+        int[] results1_6 = getArrayOfIntResults(a, b, c);
 
-        b = 2; // возвращаем к условию задачи
-
-        int res4 = (a + b++) / --c;     // =1,  т.к. сперва выполяется 5+2=7, затем b++(но уже не используется),
-                                        // затем --с (т.е. с=8-1), а затем 7/7=1
-
-        b=2; c = 8;  // возвращаем к условию задачи
-
-        int res5 = (a * b >> b++) / --c; /* =0, т.к. сперва выволняется 5*2=10, т.е. 0000_1010 в двоичной,
-                                    затем сдвиг влево на 2, т.е. становится 0000_0010,
-                                    т.е. 2 в десятичной, затем b++ (но уже не используется),
-                                    затем --с (т.е. с=8-1), а затем 2/7=0(т.к. интовое число)*/
-
-        b=2; c = 8;  // возвращаем к условию задачи
-
-        int res6 = (5 + 7 > 20 ? 68 : 22 * b >> b++) / --c; /* =1, т.к. сперва выполняется 22*2=44,
-                                    или 0010_1100 в двоичной, затем >>2, становится 0000_1011,
-                                    или 11 в десятично,b++, затем 5+7 = 9 затем сравнение 9>20-нет,
-                                    значит берется правая часть (11), затем --с, т.е. с=7, затем 11/7 = 1
-                                    */
-
-        b=2; c = 8;  // возвращаем к условию задачи
-
-        //указанная ниже задача не скомпилируется, т.к. ?: выдает два варианта - boolean/int,а допустим только
-        //boolean/boolean или int/int.
-        //int res 7= (5 + 7 > 20 ? 68 >= 68 : 22 * b >> b++) / --c;
-
-        boolean res7 = 6 - 2 > 3 && 12 * 12 <= 119; // false,т.к. 6-2 = 4, 4 > 3 - true,
-                                                    // далее 12 * 12 <= 119 - false
-                                                    // true && false = false
-        boolean res8 = true && false;//false, т.к. true && false дает false
+        boolean[] results7_8 = {run7(),run8()};
 
         System.out.printf("res1 = %d\nres2 = %d\nres3 = %d\nres4 = %d\nres5 = %d\n" +
-                "res6 = %d\nres7 = %b\nres8 = %b\n", res1,res2,res3,res4,res5,res6,res7,res8);
+                "res6 = %d\nres7 = %b\nres8 = %b\n", results1_6[0],results1_6[1],results1_6[2],results1_6[3],
+                results1_6[4],results1_6[5],results7_8[0],results7_8[1]);
+
+    }
+
+    public static int[] getArrayOfIntResults(int a, int b, int c) {
+        return new int[] {run1(a, b, c), run2(a, b, c), run3(a, b, c), run4(a, b, c), run5(a, b, c), run6(b, c)};
+    }
+
+
+    /**
+     * Возвращает a + b / c. Если с == 0, возвращает 0
+     * @param a
+     * @param b
+     * @param c
+     * @return
+     */
+    public static int run1(int a, int b, int c) {
+        if (c == 0) {
+            return 0;
+        }
+        return a + b / c;
+
+    }
+
+    /**
+     * Возвращает (a + b) / c. Если с == 0, возвращает 0
+     * @param a
+     * @param b
+     * @param c
+     * @return
+     */
+    public static int run2(int a, int b, int c) {
+        if (c == 0) {
+            return 0;
+        }
+        return (a + b) / c;
+
+    }
+
+    /**
+     * Возвращает (a + b++) / c. Если с == 0, возвращает 0
+     * @param a
+     * @param b
+     * @param c
+     * @return
+     */
+    public static int run3(int a, int b, int c) {
+        if (c == 0) {
+            return 0;
+        }
+        return (a + b++) / c;
+
+    }
+
+    /**
+     * Возвращает (a + b++) / --c. Если с == 1, возвращает 0
+     * @param a
+     * @param b
+     * @param c
+     * @return
+     */
+    public static int run4(int a, int b, int c) {
+        if (c == 1) {
+            return 0;
+        }
+        return (a + b++) / --c;
+
+    }
+
+    /**
+     * Возвращает (a * b >> b++) / --c. Если с == 1, возвращает 0
+     * @param a
+     * @param b
+     * @param c
+     * @return
+     */
+    public static int run5(int a, int b, int c) {
+        if (c == 1) {
+            return 0;
+        }
+        return (a * b >> b++) / --c;
+
+    }
+
+
+    /**
+     * Возвращает (5 + 7 > 20 ? 68 : 22 * b >> b++) / --c Если с == 1, возвращает 0
+     * @param b
+     * @param c
+     * @return
+     */
+    public static int run6(int b, int c) {
+        if (c == 1) {
+            return 0;
+        }
+        return (5 + 7 > 20 ? 68 : 22 * b >> b++) / --c;
+
+    }
+
+    public static boolean run7 () {
+        return 6 - 2 > 3 && 12 * 12 <= 119;
+
+    }
+
+    public static boolean run8 () {
+        return true&&false;
 
     }
 }
