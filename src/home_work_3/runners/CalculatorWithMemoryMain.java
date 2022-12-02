@@ -11,18 +11,21 @@ public class CalculatorWithMemoryMain {
                 new CalculatorWithMemory(new CalculatorWithMathCopy());
 
 
+        System.out.println("Результат: " + getResult(calculator));
 
-        calculator.divide(28.0,5);
+    }
+
+    public static double getResult(CalculatorWithMemory calculator) {
+        calculator.divide(28.0, 5);
         calculator.save();
         calculator.exponiate(calculator.load(), 2);
         calculator.save();
-        calculator.sum(15*7, calculator.load());
+        calculator.sum(15 * 7, calculator.load());
         calculator.save();
         calculator.sum(4.1, calculator.load());
         calculator.save();
-
-
-        System.out.println("Результат: "+calculator.load());
-
+        return calculator.load();
     }
+
+
 }

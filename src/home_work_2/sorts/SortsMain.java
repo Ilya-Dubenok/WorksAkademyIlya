@@ -9,96 +9,57 @@ public class SortsMain {
 
     public static void main(String[] args) {
 
-
-        int[] first = new int[]{1, 2, 3, 4, 5, 6};
-        System.out.println("Cортировка пузырьком:");
-        System.out.print(Arrays.toString(first) + " -> ");
-        SortsUtils.sort(first);
-        System.out.println(Arrays.toString(first));
-
-        first = new int[]{1, 2, 3, 4, 5, 6};
-        System.out.println("Шейкерная сортировка: ");
-        System.out.print(Arrays.toString(first) + " -> ");
-        SortsUtils.shake(first);
-        System.out.println(Arrays.toString(first));
+        System.out.println(bubbleSort(new int[]{1, 2, 3, 4, 5, 6}));
 
 
-        int[] second = new int[]{1, 1, 1, 1};
-        System.out.println("Cортировка пузырьком:");
-        System.out.print(Arrays.toString(second) + " -> ");
-        SortsUtils.sort(second);
-        System.out.println(Arrays.toString(second));
-
-        second = new int[]{1, 1, 1, 1};
-        System.out.println("Шейкерная сортировка: ");
-        System.out.print(Arrays.toString(second) + " -> ");
-        SortsUtils.shake(second);
-        System.out.println(Arrays.toString(second));
+        System.out.println(shakeSort(new int[]{1, 2, 3, 4, 5, 6}));
 
 
-        int[] third = new int[]{9, 1, 5, 99, 9, 9};
-        System.out.println("Cортировка пузырьком:");
-        System.out.print(Arrays.toString(third) + " -> ");
-        SortsUtils.sort(third);
-        System.out.println(Arrays.toString(third));
+        System.out.println(bubbleSort(new int[]{1, 1, 1, 1}));
 
-        third = new int[]{9, 1, 5, 99, 9, 9};
-        System.out.println("Шейкерная сортировка: ");
-        System.out.print(Arrays.toString(third) + " -> ");
-        SortsUtils.shake(third);
-        System.out.println(Arrays.toString(third));
+        System.out.println(shakeSort(new int[]{1, 1, 1, 1}));
 
 
-        int[] fourth = new int[]{};
-        System.out.println("Cортировка пузырьком:");
-        System.out.print(Arrays.toString(fourth) + " -> ");
-        SortsUtils.sort(fourth);
-        System.out.println(Arrays.toString(fourth));
+        System.out.println(bubbleSort(new int[]{9, 1, 5, 99, 9, 9}));
 
-        fourth = new int[]{};
-        System.out.println("Шейкерная сортировка: ");
-        System.out.print(Arrays.toString(fourth) + " -> ");
-        SortsUtils.shake(fourth);
-        System.out.println(Arrays.toString(fourth));
+        System.out.println(shakeSort(new int[]{9, 1, 5, 99, 9, 9}));
 
 
-        int[] fifth = new int[]{6, 5, 4, 3, 2, 1};
-        System.out.println("Cортировка пузырьком:");
-        System.out.print(Arrays.toString(fifth) + " -> ");
-        SortsUtils.sort(fifth);
-        System.out.println(Arrays.toString(fifth));
+        System.out.println(bubbleSort(new int[]{}));
 
-        fifth = new int[]{6, 5, 4, 3, 2, 1};
-        System.out.println("Шейкерная сортировка: ");
-        System.out.print(Arrays.toString(fifth) + " -> ");
-        SortsUtils.shake(fifth);
-        System.out.println(Arrays.toString(fifth));
+        System.out.println(shakeSort(new int[]{}));
 
+        System.out.println(bubbleSort(new int[]{6, 5, 4, 3, 2, 1}));
 
-        int[] random = ArraysUtils.arrayRandom(50, 100);
-        System.out.println("Cортировка пузырьком:");
-        System.out.print(Arrays.toString(random) + " -> ");
-        SortsUtils.sort(random);
-        System.out.println(Arrays.toString(random));
+        System.out.println(shakeSort(new int[]{6, 5, 4, 3, 2, 1}));
 
-        random = ArraysUtils.arrayRandom(50, 100);
-        System.out.println("Шейкерная сортировка: ");
-        System.out.print(Arrays.toString(random) + " -> ");
-        SortsUtils.shake(random);
-        System.out.println(Arrays.toString(random));
+        System.out.println(bubbleSort(ArraysUtils.arrayRandom(50, 100)));
+
+        System.out.println(shakeSort(ArraysUtils.arrayRandom(50, 100)));
+
+        System.out.println("Ввод с консоли: ");
+
+        System.out.println(bubbleSort(ArraysUtils.arrayFromConsole()));
+
+        System.out.println(shakeSort(ArraysUtils.arrayFromConsole()));
 
 
-        int[] custom = ArraysUtils.arrayFromConsole();
-        System.out.println("Cортировка пузырьком:");
-        System.out.print(Arrays.toString(custom) + " -> ");
-        SortsUtils.sort(custom);
-        System.out.println(Arrays.toString(custom));
 
-        custom = ArraysUtils.arrayFromConsole();
-        System.out.println("Шейкерная сортировка: ");
-        System.out.print(Arrays.toString(custom) + " -> ");
-        SortsUtils.shake(custom);
-        System.out.println(Arrays.toString(custom));
+    }
 
+    public static String bubbleSort(int[] a) {
+        String res = "Сортировка пузырьком:\n"+
+                Arrays.toString(a);
+        SortsUtils.sort(a);
+        res +=" -> "+ Arrays.toString(a);
+        return res;
+    }
+
+    public static String shakeSort(int[] a) {
+        String res = "Сортировка пузырьком:\n"+
+                Arrays.toString(a);
+        SortsUtils.shake(a);
+        res +=" -> "+ Arrays.toString(a);
+        return res;
     }
 }

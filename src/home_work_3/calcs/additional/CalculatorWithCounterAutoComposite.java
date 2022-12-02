@@ -1,8 +1,9 @@
 package home_work_3.calcs.additional;
 
+import home_work_3.calcs.api.ICounter;
 import home_work_3.calcs.simple.CalculatorWithMathCopy;
 
-public class CalculatorWithCounterAutoComposite {
+public class CalculatorWithCounterAutoComposite implements ICounter {
 
     private long counter;
 
