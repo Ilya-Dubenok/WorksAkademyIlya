@@ -13,6 +13,6 @@ public class NumberComparator<T extends Number> implements Comparator<T> {
 
     @Override
     public double compare(T o1, T o2) {
-        return o1.doubleValue() - o2.doubleValue();
+        return Double.compare(o1.doubleValue(), o2.doubleValue());
     }
 }
