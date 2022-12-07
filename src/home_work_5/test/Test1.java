@@ -1,7 +1,7 @@
 package home_work_5.test;
 
 import home_work_5.containter.DataContainer;
-import home_work_5.utils.IntegerComparator;
+import home_work_5.utils.NumberComparator;
 import home_work_5.utils.StringLengthComparator;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -206,7 +206,7 @@ public class Test1 {
     public void test21() {
         DataContainer<Integer> dataContainer =
                 new DataContainer<>(new Integer[]{1, -2, 3, 77, 3});
-        dataContainer.sort(new IntegerComparator());
+        dataContainer.sort(new NumberComparator<>());
         Assertions.assertArrayEquals(new Integer[]{-2, 1, 3, 3, 77}, dataContainer.getItems());
     }
 

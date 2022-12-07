@@ -49,7 +49,7 @@ public class DataContainer<T> implements Iterable<T> {
      * Сортирует T[]data алгоритмом шейкерной сортировки. Пропускает null значения
      * @param comparator компаратор, по которому будет происходить сортировка
      */
-    public void sort(home_work_5.api.Comparator<? super T> comparator) {
+    public void sort(Comparator<? super T> comparator) {
 
         int start = 0;
         int end = data.length - 1;

@@ -2,7 +2,7 @@ package home_work_5;
 
 
 import home_work_5.containter.DataContainer;
-import home_work_5.utils.IntegerComparator;
+import home_work_5.utils.NumberComparator;
 import home_work_5.utils.StringLengthComparator;
 
 import java.util.Arrays;
@@ -72,11 +72,11 @@ public class Main {
 
         System.out.println("\nДемонстрация работы НЕСТАТИЧЕСКОГО метода sort()\n-----------------------");
         System.out.print("Было: " + printOneData(dataContainerIntegerEtalon1) + " -> стало: ");
-        dataContainerIntegerEtalon1.sort(new IntegerComparator());
+        dataContainerIntegerEtalon1.sort(new NumberComparator<Number>());
 
         System.out.println(printOneData(dataContainerIntegerEtalon1));
         System.out.print("Было: " + printOneData(dataContainerIntegerEtalon2) + " -> стало: ");
-        dataContainerIntegerEtalon2.sort(new IntegerComparator());
+        dataContainerIntegerEtalon2.sort(new NumberComparator<Number>());
         System.out.println(printOneData(dataContainerIntegerEtalon2));
 
         System.out.print("Было: " + printOneData(dataContainerStringEtalon1) + " -> стало: ");
